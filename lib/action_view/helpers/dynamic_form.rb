@@ -223,7 +223,7 @@ module ActionView
 
             error_messages = objects.sum do |object|
               object.errors.full_messages.map do |msg|
-                content_tag(:li, msg)
+                content_tag(:li, (I18n.t "validations.#{msg}", :default => msg))
               end
             end.join.html_safe
 
